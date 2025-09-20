@@ -2,10 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-# Create FastAPI app
 app = FastAPI(title="AI Recovery Companion")
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -21,14 +19,6 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "service": "AI Recovery Companion"}
-
-@app.post("/chat")
-async def chat():
-    return {"response": "Chat functionality coming soon"}
-
-@app.post("/send-sms")
-async def send_sms():
-    return {"status": "SMS functionality coming soon"}
 
 if __name__ == "__main__":
     import uvicorn
